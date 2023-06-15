@@ -16,7 +16,7 @@ Project for MIP:lab on frames reconstruction from fMRI data
 
 # Pretrained model 
 
-You can download pretrained model directly here [google drive]
+You can download pretrained model directly here [[google drive](https://drive.google.com/drive/folders/1K9bnS2LjOqa7erS0BNR5y0Lc8QKybhv8?usp=sharing)]
 
 # Acknowledgments
 
