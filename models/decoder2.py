@@ -6,16 +6,16 @@ class Decoder2(nn.Module):
         super(Decoder2, self).__init__()
 
         # FC Output
-        self.fc_output = nn.Linear(36552, 14 * 14 * 256)
+        self.fc_output = nn.Linear(13459, 14 * 14 * 128)
 
         # Conv. 5x5 + ReLU + 2x US + BN
-        self.conv1 = nn.Conv2d(256, 128, kernel_size=5, padding=2)
+        self.conv1 = nn.Conv2d(128, 64, kernel_size=5, padding=2)
         self.relu1 = nn.ReLU()
         self.upsample1 = nn.UpsamplingNearest2d(scale_factor=2)
-        self.bn1 = nn.BatchNorm2d(128)
+        self.bn1 = nn.BatchNorm2d(64)
 
         # Conv. 5x5 + ReLU + 2x US + BN
-        self.conv2 = nn.Conv2d(128, 48, kernel_size=5, padding=2)
+        self.conv2 = nn.Conv2d(64, 48, kernel_size=5, padding=2)
         self.relu2 = nn.ReLU()
         self.upsample2 = nn.UpsamplingNearest2d(scale_factor=2)
         self.bn2 = nn.BatchNorm2d(48)
