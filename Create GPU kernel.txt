@@ -1,0 +1,47 @@
+conda create -n gpu2 python=3.9
+conda activate gpu2
+pip install --upgrade pip
+pip install tensorflow
+pip install nvidia-cudnn-cu11==8.6.0.163
+pip install torch
+pip install torchvision
+
+test if build with cuda using :
+python 
+>> import tensorflow as tf
+>> tf.test.is_built_with_cuda()
+--> should return True
+
+conda install -c anaconda ipykernel
+
+python -m ipykernel install --user --name=gpu2 #create the kernel into the juputer notebook
+
+--> open a notebook 
+
+import tensorflow as tf
+from tensorflow.python.client import device_lib
+tf.config.list_physical_devices('GPU')
+
+--> should return something like [PhysicalDevice(name='name', device_type = 'GPU']
+
+device_lib.list_local_devices()
+
+--> should see your GPU : i.e. NVIDIA etc....
+
+
+
+
+cd /mnt/c/Users/strom/Desktop/fmri_project/subjects/sub-01
+
+#!/bin/bash
+#SBATCH --chdir /scratch/izar/<put-your-username-here>
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 1
+#SBATCH --mem 8G
+#SBATCH --partition gpu
+#SBATCH --gres gpu:1
+#SBATCH --qos dlav
+#SBATCH --account civil-459-2023
+conda activate PyTorch
+python main_train.py
