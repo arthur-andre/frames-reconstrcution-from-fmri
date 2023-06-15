@@ -9,11 +9,12 @@ Project for MIP:lab on frames reconstruction from fMRI data
 - The last data extraction is the fMRI data: need to download the functional and the anatomical data of each subject at the following link [https://openneuro.org/datasets/ds000113/versions/1.3.0]
 - preprocess the functional data using the anatomical to bring the fMRI in the template space (MNI) to further apply a global mask to each volume.
 - the python file export_flat_fmri can be used to create the labels once the preprocessing is done (filtered_func_data.nii.gz)
-- in /models folder, encoder2 differs from encoder by the length of the output (bigger flat fmri).
+
 
 # Data training
 
 - Either encoder or decoder training is implemented in 2 forms: notebook or direct Python file.
+- in /models folder, encoder2 differs from encoder by the length of the output (bigger flat fmri).
 
 # Pretrained model 
 
